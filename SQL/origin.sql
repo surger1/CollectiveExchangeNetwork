@@ -74,11 +74,13 @@ CREATE TABLE Event (
 );
 
 CREATE TABLE Schedule (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  user_id INT NOT NULL,
-  event_id INT NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES User(id),
-  FOREIGN KEY (event_id) REFERENCES Event(id)
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    entity_id INT NOT NULL,
+    entity_type VARCHAR(255) NOT NULL,
+    start_date DATETIME NOT NULL,
+    end_date DATETIME,
+    recurrence_rule VARCHAR(255),
+    PRIMARY KEY (id)
 );
 
 CREATE TABLE Comment (
